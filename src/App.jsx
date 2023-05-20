@@ -7,16 +7,23 @@ import Header from './components/Header/Header';
 
 
 function App() {
+  // const abreContainer = () => {
+  //   document.getElementById('container').style.transition = '1s'
+  //   document.getElementById('container').style.transform = 'scale(1)';
+  // }
   return (
     <div>
-      <Header></Header>
-      <Routes>
-        <Route index element={<HomePage />} />
-        <Route path='terminopipe' element={<EndPipePage />} />
-        <Route path='compressao' element={<CompressionPage />} />
-        <Route path='*' element={<h1>Página não encontrada</h1>} />
-      </Routes>
-    </div>
+      <Header ></Header>
+      <div id={'container'} className='container'>
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path='terminopipe' element={<EndPipePage />} />
+          <Route path='compressao' element={<CompressionPage />} />
+          <Route path='*' element={<h1>Página não encontrada</h1>} />
+        </Routes>
+      </div>
+
+    </div >
   )
 }
 

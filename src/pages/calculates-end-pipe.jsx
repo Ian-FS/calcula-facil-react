@@ -1,9 +1,9 @@
+import Formulario from "../components/Formulario/Form/Formulario"
+
 export default function EndPipePage() {
     return (
         <>
-            <h1>
-                End Pipe
-            </h1>
+            <Formulario />
         </>
 
     )

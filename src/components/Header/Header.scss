@@ -1,12 +1,27 @@
 header {
+    background-color: #fafafa;
+    color: darkred;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 10px 10px 0 0;
     ul {
         display: flex;
+        justify-content: space-around;
         gap: 20px;
         li {
             list-style-type: none;
             a {
+                font-weight: 700;
                 text-decoration: none;
                 color: inherit;
+                &:hover {
+                    font-size: 20px;
+                    margin: 20px;
+                    transition: 0.3s;
+                }
+                &:focus {
+                    color: black;
+                }
             }
         }
     }

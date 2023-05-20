@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    padding: 20px;
+    row-gap: 10px;
+    flex-direction: column;
+    &-control {
+        position: relative;
+        width: 100%;
+        input {
+            &:hover {
+                border-color: #000;
+                transition: 0.8s;
+            }
+        }
+    }
+}

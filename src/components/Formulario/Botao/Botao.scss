@@ -1,0 +1,14 @@
+button {
+    width: 100%;
+    background-color: crimson;
+    border-radius: 10px;
+    border: 2px solid crimson;
+    font-size: 20px;
+    padding: 10px;
+    color: #eee;
+    font-weight: bold;
+    &:hover {
+        background-color: #e74c3c;
+        transition: 0.2s;
+    }
+}

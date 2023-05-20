@@ -1,0 +1,33 @@
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 18px;
+}
+input {
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+    &:hover {
+        border-color: #000;
+        transition: 0.8s;
+    }
+}
+i {
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    visibility: hidden;
+}
+small {
+    position: absolute;
+    bottom: 5px;
+    color: #e74c3c;
+    left: 0;
+    visibility: hidden;
+    font-weight: 600;
+}
