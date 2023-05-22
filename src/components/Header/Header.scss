@@ -1,9 +1,9 @@
 header {
     background-color: #fafafa;
-    color: darkred;
+    color: black;
     padding: 20px;
     font-size: 18px;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
     ul {
         display: flex;
         justify-content: space-around;
@@ -15,12 +15,10 @@ header {
                 text-decoration: none;
                 color: inherit;
                 &:hover {
-                    font-size: 20px;
-                    margin: 20px;
-                    transition: 0.3s;
+                    color: darkred;
                 }
                 &:focus {
-                    color: black;
+                    color: darkred;
                 }
             }
         }

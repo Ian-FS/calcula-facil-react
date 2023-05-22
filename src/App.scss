@@ -1,8 +1,9 @@
 .container {
-  // transform: scale(0);
   background-color: #fafafa;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 2px 5px rgb(0, 0, 0, 0.3);
   width: 500px;
   max-width: 100%;
+  position: relative;
+  bottom: 10px;
 }
