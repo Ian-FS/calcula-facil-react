@@ -5,8 +5,8 @@ import { useState } from "react"
 import ResultDashboard from "../components/Formulario/ResultDashboard/ResultDashboard";
 
 export default function EndPipePage() {
-    const [carcassTotal, setCarcassTotal] = useState('');
-    const [partialExtrusion, setPartialExtrusion] = useState('');
+    const [toBeProduced, setToBeProduced] = useState('');
+    const [produced, setProduced] = useState('');
     const [speedLine, setSpeedLine] = useState('');
 
     const diasDaSemana = [
@@ -19,51 +19,76 @@ export default function EndPipePage() {
         'sábado'
     ]
 
-    const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+    const meses = ['Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+        'Agosto',
+        'Setembro',
+        'Outubro',
+        'Novembro',
+        'Dezembro'
+    ]
 
-    const calculaTermino = () => (carcassTotal - partialExtrusion) / speedLine
-    const calculaTempoTermino = () => {
+    const endTime = () => (toBeProduced - produced) / speedLine
 
+    const convertedTimes = {
+        days: Math.trunc((endTime() / 60) / 24), // dias
+        hours: Math.trunc(endTime() / 60), // horas
+        minutes: (endTime() % 60).toFixed(0) //minutos
+    }
+
+    const addTime = () => {
         let currentDate = new Date()
         let newDate = new Date()
 
-        const diasConvertidos = Math.trunc((calculaTermino() / 60) / 24) // dias
-        const horasConvertidas = Math.trunc(calculaTermino() / 60) // horas
-        const minutosConvertidos = calculaTermino() % 60 //minutos
+        newDate.setDate(currentDate.getDate() + convertedTimes.days)
+        newDate.setHours(currentDate.getHours() + convertedTimes.hours)
+        newDate.setMinutes(currentDate.getMinutes() + (convertedTimes.minutes))
 
+        const diaDaSemana = diasDaSemana[newDate.getDay()]
+        const newMinutes = newDate.getMinutes().toString()
+        const newHours = newDate.getHours()
+        const newDays = newDate.getDate().toString()
+        const newMonth = newDate.getMonth()
+        const newYears = newDate.getFullYear()
 
-        newDate.setDate(currentDate.getDate() + diasConvertidos)
-        newDate.setHours(currentDate.getHours() + horasConvertidas)
-        newDate.setMinutes(currentDate.getMinutes() + minutosConvertidos)
+        let mensagem = `O tubo terminará no(a) ${diaDaSemana}, ${newDays.padStart(2, '0')} de ${meses[newMonth]} de ${newYears}, às ${newHours}:${newMinutes.padStart(2, '0')}.`
 
-        let diaDaSemana = diasDaSemana[newDate.getDay()]
-
-        console.log(`O tubo terminará na ${diaDaSemana}, ${newDate.getDate()} de ${meses[newDate.getMonth()]} de ${newDate.getFullYear()}, às ${newDate.getHours()}:${newDate.getMinutes()}.`)
-        return <p>
-            {`O tubo terminará na ${diaDaSemana}, ${newDate.getDate()} de ${meses[newDate.getMonth()]} de ${newDate.getFullYear()}, às ${newDate.getHours()}:${newDate.getMinutes()}.`}
-        </p>
+        return mensagem
     }
 
+    const isClicked = () => false
 
+    const handleClick = (event) => {
+        event.preventDefault();
+        addTime()
+    }
 
     return (
-        <div className="form">
+        <form className="form" onSubmit={handleClick}>
             <InputBox
-                handleChange={(event) => setCarcassTotal(parseFloat(event.target.value))}
-                labelBox={'Carcaça total'}
+                labelBox={'Tubo a ser produzido'}
                 placeholder={'Informe a metragem'}
-                value={carcassTotal}
+                stepValue="0.1"
+                setValue={setToBeProduced}
+                value={toBeProduced}
             />
             <InputBox
-                handleChange={(event) => setPartialExtrusion(parseFloat(event.target.value))}
-                labelBox={'Extrusão parcial'}
+                labelBox={'Tubo produzido'}
                 placeholder={'Informe a metragem'}
-                value={partialExtrusion}
+                stepValue="0.1"
+                setValue={setProduced}
+                value={produced}
             />
             <InputBox
-                handleChange={(event) => setSpeedLine(parseFloat(event.target.value))}
                 labelBox={'Velocidade da Linha'}
                 placeholder={'Informe a velocidade'}
+                stepValue="0.01"
+                setValue={setSpeedLine}
                 value={speedLine}
             />
             <div id={'number-line'} className="number-line">
@@ -81,11 +106,10 @@ export default function EndPipePage() {
                 <InputCheck labelCheck={'Underroller'} />
                 <InputCheck labelCheck={'Ferramenta'} />
             </div>
-            <Botao
-                handleClick={calculaTempoTermino}
-            />
-            {calculaTempoTermino()}
-            <ResultDashboard />
-        </div>
+            <Botao />
+            {
+                isClicked && <ResultDashboard mensagem={addTime()} />
+            }
+        </form>
     )
 }

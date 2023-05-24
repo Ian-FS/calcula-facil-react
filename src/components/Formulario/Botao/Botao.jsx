@@ -1,10 +1,10 @@
 import './Botao.scss'
-export default function Botao({ handleClick }) {
+export default function Botao() {
+
+
     return (
         <button
             id="button"
-            type="submit"
-            onClick={handleClick}
         >
             Calcular
         </button>
