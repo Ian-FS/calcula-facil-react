@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import InputBox from "../components/Formulario/InputBox/InputBox"
 import InputCheck from "../components/Formulario/InputCheck/InputCheck"
 import Botao from "../components/Formulario/Botao/Botao"
@@ -51,13 +52,13 @@ export default function EndPipePage({ showResult, setShowResult }) {
         newDate.setMinutes(currentDate.getMinutes() + (convertedTimes.minutes))
 
         const diaDaSemana = diasDaSemana[newDate.getDay()]
-        const newMinutes = newDate.getMinutes().toString()
+        const newMinutes = newDate.getMinutes()
         const newHours = newDate.getHours()
-        const newDays = newDate.getDate().toString()
+        const newDays = newDate.getDate()
         const newMonth = newDate.getMonth()
         const newYears = newDate.getFullYear()
 
-        let mensagem = `O tubo terminará no(a) ${diaDaSemana}, ${newDays.padStart(2, '0')} de ${meses[newMonth]} de ${newYears}, às ${newHours}:${newMinutes.padStart(2, '0')}.`
+        let mensagem = `O tubo terminará no(a) ${diaDaSemana}, ${(newDays.toString()).padStart(2, '0')} de ${meses[newMonth]} de ${newYears}, às ${newHours}:${(newMinutes.toString()).padStart(2, '0')}.`
 
         return mensagem
     }

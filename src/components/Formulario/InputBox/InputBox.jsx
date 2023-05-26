@@ -13,10 +13,9 @@ export default function InputBox({ labelBox, placeholder, stepValue, value, setV
             <input
                 style={{ styleError }}
                 value={value}
-                type="number"
+                type='number'
                 step={stepValue}
                 min="0"
-                id="input"
                 placeholder={placeholder}
                 onChange={handleChange}
             />
