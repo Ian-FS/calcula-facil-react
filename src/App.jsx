@@ -14,7 +14,7 @@ function App() {
       {!showResult && <Header ></Header>}
       <div id={'container'} className='container'>
         <Routes>
-          <Route index element={<HomePage />} />
+          <Route path='/' element={<HomePage />} />
           <Route path='/terminopipe' element={<EndPipePage showResult={showResult} setShowResult={setShowResult} />} />
           <Route path='/compressao' element={<CompressionPage />} />
           <Route path='*' element={<h1>Página não encontrada</h1>} />
