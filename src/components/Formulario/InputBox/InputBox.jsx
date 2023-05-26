@@ -3,7 +3,7 @@ import './InputBox.scss'
 
 export default function InputBox({ labelBox, placeholder, stepValue, value, setValue, activeStyle }) {
 
-    const handleChange = (event) => setValue(parseFloat(event.target.value))
+    const handleChange = (event) => setValue(event.target.value)
 
     const styleError = activeStyle && { visibility: 'visible', position: 'relative' }
 
