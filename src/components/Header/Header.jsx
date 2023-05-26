@@ -9,7 +9,7 @@ export default function Header({ abreContainer }) {
             <nav>
                 <ul>
                     {/* <li><Link to="/">Home</Link></li> */}
-                    <li onClick={abreContainer}><Link to="/terminopipe">Termino de tubo</Link></li>
+                    <li onClick={abreContainer}><Link to="/terminopipe">Termino do tubo</Link></li>
                     <li><Link to="/compressao">Taxa de compressão</Link></li>
                 </ul>
             </nav>

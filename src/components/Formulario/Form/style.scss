@@ -20,3 +20,12 @@
         display: flex;
     }
 }
+.form-control.error {
+    input {
+        border-color: #e74c3c;
+    }
+    i.fa-exclamation-circle {
+        color: #e74c3c;
+        visibility: visible;
+    }
+}

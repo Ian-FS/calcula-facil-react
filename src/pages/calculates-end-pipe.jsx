@@ -4,10 +4,11 @@ import Botao from "../components/Formulario/Botao/Botao"
 import { useState } from "react"
 import ResultDashboard from "../components/Formulario/ResultDashboard/ResultDashboard";
 
-export default function EndPipePage() {
+export default function EndPipePage({ showResult, setShowResult }) {
     const [toBeProduced, setToBeProduced] = useState('');
     const [produced, setProduced] = useState('');
     const [speedLine, setSpeedLine] = useState('');
+    const [activeStyle, setActiveStyle] = useState(false)
 
     const diasDaSemana = [
         'domingo',
@@ -61,55 +62,90 @@ export default function EndPipePage() {
         return mensagem
     }
 
-    const isClicked = () => false
+
+
+    const checkInput = () => {
+        if (toBeProduced === "") {
+            setActiveStyle(true)
+            let message = "Metragem total a ser produzido necessária";
+            return
+        }
+        if (produced === "") {
+            setActiveStyle(true)
+            let message = "Metragem atual produzida necessária";
+            return
+        }
+        if (speedLine === "") {
+            setActiveStyle(true)
+            let message = "Metragem de referência da carcaça necessária";
+            return
+        } else {
+            addTime()
+            setShowResult(true)
+        }
+    }
+
 
     const handleClick = (event) => {
         event.preventDefault();
-        addTime()
+        checkInput()
+
     }
 
     return (
-        <form className="form" onSubmit={handleClick}>
-            <InputBox
-                labelBox={'Tubo a ser produzido'}
-                placeholder={'Informe a metragem'}
-                stepValue="0.1"
-                setValue={setToBeProduced}
-                value={toBeProduced}
-            />
-            <InputBox
-                labelBox={'Tubo produzido'}
-                placeholder={'Informe a metragem'}
-                stepValue="0.1"
-                setValue={setProduced}
-                value={produced}
-            />
-            <InputBox
-                labelBox={'Velocidade da Linha'}
-                placeholder={'Informe a velocidade'}
-                stepValue="0.01"
-                setValue={setSpeedLine}
-                value={speedLine}
-            />
-            <div id={'number-line'} className="number-line">
-                <InputCheck
-                    labelCheck={'Linha 1'}
-                />
-                <InputCheck
-                    labelCheck={'Linha 2'}
-                />
-                <InputCheck
-                    labelCheck={'Linha 3'}
-                />
-            </div>
-            <div id={'end-refer'} className="end-refer">
-                <InputCheck labelCheck={'Underroller'} />
-                <InputCheck labelCheck={'Ferramenta'} />
-            </div>
-            <Botao />
-            {
-                isClicked && <ResultDashboard mensagem={addTime()} />
+        <>
+            {!showResult &&
+                <form className="form" onSubmit={handleClick}>
+                    <div>
+                        <InputBox
+                            labelBox={'Tubo a ser produzido'}
+                            placeholder={'Informe a metragem'}
+                            stepValue="0.1"
+                            setValue={setToBeProduced}
+                            value={toBeProduced}
+                            setActiveStyle={setActiveStyle}
+                            activeStyle={activeStyle}
+                        />
+                        <InputBox
+                            labelBox={'Tubo produzido'}
+                            placeholder={'Informe a metragem'}
+                            stepValue="0.1"
+                            setValue={setProduced}
+                            value={produced}
+                            setActiveStyle={setActiveStyle}
+                            activeStyle={activeStyle}
+                        />
+                        <InputBox
+                            labelBox={'Velocidade da Linha'}
+                            placeholder={'Informe a velocidade'}
+                            stepValue="0.01"
+                            setValue={setSpeedLine}
+                            value={speedLine}
+                            setActiveStyle={setActiveStyle}
+                            activeStyle={activeStyle}
+                        />
+                        <div id={'number-line'} className="number-line">
+                            <InputCheck
+                                labelCheck={'Linha 1'}
+                            />
+                            <InputCheck
+                                labelCheck={'Linha 2'}
+                            />
+                            <InputCheck
+                                labelCheck={'Linha 3'}
+                            />
+                        </div>
+                        <div id={'end-refer'} className="end-refer">
+                            <InputCheck labelCheck={'Underroller'} />
+                            <InputCheck labelCheck={'Ferramenta'} />
+                        </div>
+                        <Botao />
+                    </div>
+                </form>
             }
-        </form>
+            {
+                showResult && <ResultDashboard mensagem={addTime()} setShowValue={setShowResult} />
+            }
+        </>
     )
 }

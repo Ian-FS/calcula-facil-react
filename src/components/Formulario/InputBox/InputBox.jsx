@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
 import './InputBox.scss'
 
-export default function InputBox({ labelBox, placeholder, stepValue, value, setValue }) {
+export default function InputBox({ labelBox, placeholder, stepValue, value, setValue, activeStyle }) {
 
     const handleChange = (event) => setValue(parseFloat(event.target.value))
-    console.log(stepValue)
+
+    const styleError = activeStyle && { visibility: 'visible', position: 'relative' }
+
     return (
         <div id="input-box" className="form-control">
             <label htmlFor="input">{labelBox}</label>
             <input
+                style={{ styleError }}
                 value={value}
                 type="number"
                 step={stepValue}

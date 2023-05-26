@@ -1,13 +1,13 @@
 .result-container {
-    display: block;
-    flex-direction: column;
+    position: absolute;
     .result-header {
         display: flex;
         padding: 10px 25px;
-        background-color: #eee;
+        background-color: #fafafa;
         font-size: 15px;
         justify-content: space-between;
         align-items: center;
+        border-radius: 10px 10px 0 0;
         img {
             transform: rotate(-0.5turn);
             width: 40px;
@@ -17,5 +17,10 @@
                 transition: 0s;
             }
         }
+    }
+    .result-box {
+        padding: 20px;
+        background-color: aliceblue;
+        border-radius: 0 0 10px 10px;
     }
 }
