@@ -63,22 +63,17 @@ export default function EndPipePage({ showResult, setShowResult }) {
         return mensagem
     }
 
-
-
     const checkInput = () => {
         if (toBeProduced === "") {
             setActiveStyle(true)
-            let message = "Metragem total a ser produzido necessária";
             return
         }
         if (produced === "") {
             setActiveStyle(true)
-            let message = "Metragem atual produzida necessária";
             return
         }
         if (speedLine === "") {
             setActiveStyle(true)
-            let message = "Metragem de referência da carcaça necessária";
             return
         } else {
             addTime()
@@ -128,17 +123,30 @@ export default function EndPipePage({ showResult, setShowResult }) {
                         <div id={'number-line'} className="number-line">
                             <InputCheck
                                 labelCheck={'Linha 1'}
+                                nameCheck={'line'}
+                                checked={true}
+                                valueCheck={58}
                             />
                             <InputCheck
                                 labelCheck={'Linha 2'}
+                                nameCheck={'line'}
+                                checked={false}
+                                valueCheck={56}
                             />
                             <InputCheck
                                 labelCheck={'Linha 3'}
+                                nameCheck={'line'}
+                                valueCheck={61}
                             />
                         </div>
                         <div id={'end-refer'} className="end-refer">
-                            <InputCheck labelCheck={'Underroller'} />
-                            <InputCheck labelCheck={'Ferramenta'} />
+                            <InputCheck
+                                labelCheck={'Underroller'}
+                                nameCheck={'refer'}
+                            />
+                            <InputCheck
+                                labelCheck={'Ferramenta'}
+                                nameCheck={'refer'} />
                         </div>
                         <Botao />
                     </div>
