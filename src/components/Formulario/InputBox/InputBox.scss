@@ -17,14 +17,22 @@ input {
         transition: 0.8s;
     }
 }
+
+input {
+    // border-color: #e74c3c;
+}
 i {
     position: absolute;
     top: 45px;
     right: 10px;
+    &.fa-exclamation-circle {
+        color: #e74c3c;
+        // visibility: visible;
+    }
     visibility: hidden;
 }
 small {
-    position: absolute;
+    position: absolute; //mudar para relative
     bottom: 5px;
     color: #e74c3c;
     left: 0;
