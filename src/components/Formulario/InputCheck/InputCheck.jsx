@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import './InputCheck.scss'
 
-export default function InputCheck({ labelCheck, nameCheck, valueCheck, setCheck }) {
+export default function InputCheck({ labelCheck, nameCheck, valueCheck, setValueRadio, setCheck, check, setActiveStyle }) {
     return (
         <div className="form-control check">
             <input
@@ -9,7 +9,9 @@ export default function InputCheck({ labelCheck, nameCheck, valueCheck, setCheck
                 type="radio"
                 value={valueCheck}
                 onClick={(event) => {
-                    setCheck(parseFloat(event.target.value))
+                    setValueRadio(parseFloat(event.target.value))
+                    setCheck(true)
+                    setActiveStyle(false)
                 }}
             />
             <label

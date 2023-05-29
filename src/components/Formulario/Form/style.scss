@@ -19,4 +19,13 @@
     .end-refer {
         display: flex;
     }
+
+    .small-message {
+        position: relative;
+        bottom: 5px;
+        color: #e74c3c;
+        left: 0;
+        visibility: visible;
+        font-weight: 600;
+    }
 }

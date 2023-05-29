@@ -1,17 +1,25 @@
 /* eslint-disable react/prop-types */
 import './InputBox.scss'
 
-export default function InputBox({ labelBox, placeholder, stepValue, value, setValue, activeStyle }) {
+export default function InputBox({ labelBox, placeholder, stepValue, value, setValue, activeStyle, setActiveStyle }) {
 
-    const handleChange = (event) => setValue(event.target.value)
+    const handleChange = (event) => {
+        setActiveStyle(false)
+        setValue(event.target.value)
+    }
 
-    const styleError = activeStyle && { visibility: 'visible', position: 'relative' }
+    const styleErrorInput = { borderColor: activeStyle && value === '' ? '#e74c3c' : '' }
+    const styleErrorExclamation = { visibility: activeStyle && value === '' ? 'visible' : '' }
+    const styleErrorMessage = {
+        visibility: activeStyle && value === '' ? 'visible' : '',
+        position: activeStyle && value === '' ? 'relative' : ''
+    }
 
     return (
-        <div id="input-box" className="form-control">
+        <div className="form-control">
             <label htmlFor="input">{labelBox}</label>
             <input
-                style={{ styleError }}
+                style={styleErrorInput}
                 value={value}
                 type='number'
                 step={stepValue}
@@ -19,9 +27,14 @@ export default function InputBox({ labelBox, placeholder, stepValue, value, setV
                 placeholder={placeholder}
                 onChange={handleChange}
             />
-            <i className="fas fa-exclamation-circle"></i>
-            <i className="fas fa-check-circle"></i>
-            <small>Informação obrigatória</small>
+            <i
+                className="fas fa-exclamation-circle"
+                style={styleErrorExclamation}
+            />
+            <small
+                style={styleErrorMessage}
+            >Informação obrigatória
+            </small>
         </div>
     )
 }
