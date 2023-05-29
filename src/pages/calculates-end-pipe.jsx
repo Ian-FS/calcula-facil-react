@@ -13,8 +13,6 @@ export default function EndPipePage({ showResult, setShowResult }) {
     const [activeStyle, setActiveStyle] = useState(false)
     const [valueRadioLine, setValueRadioLine] = useState(0)
 
-    // console.log(typeof valueRadioLine)
-
     const diasDaSemana = [
         'domingo',
         'segunda-feira',
@@ -46,23 +44,23 @@ export default function EndPipePage({ showResult, setShowResult }) {
     const convertedTimes = {
         days: Math.trunc((endTime() / 60) / 24), // dias
         hours: Math.trunc(endTime() / 60), // horas
-        minutes: (endTime() % 60).toFixed(0) //minutos
+        minutes: parseFloat((endTime() % 60).toFixed(0)) //minutos
     }
-    // console.log(convertedTimes.days)
-    // console.log(convertedTimes.hours)
-    // console.log(convertedTimes.minutes)
+    console.log(convertedTimes.days)
+    console.log(convertedTimes.hours)
+    console.log(convertedTimes.minutes)
 
     const addTime = () => {
         let currentDate = new Date()
         let newDate = new Date()
 
-        // console.log(currentDate)
+        console.log(`date atual: ${currentDate}`)
         newDate.setDate(currentDate.getDate() + convertedTimes.days)
-        // console.log(newDate)
+        console.log(`apos adicionar os dias: ${newDate}`)
         newDate.setHours(currentDate.getHours() + convertedTimes.hours)
-        // console.log(newDate)
-        newDate.setMinutes(currentDate.getMinutes() + (convertedTimes.minutes))
-        // console.log(newDate)
+        console.log(`apos adicionar horas: ${newDate}`)
+        newDate.setMinutes(currentDate.getMinutes() + convertedTimes.minutes)
+        console.log(`apos adicionar minutos: ${newDate}`)
 
 
 
