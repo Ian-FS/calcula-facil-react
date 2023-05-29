@@ -15,10 +15,10 @@ export default function ResultDashboard(props) {
             <div className="result-container" id="result-container">
                 <div className="result-header">
                     <img onClick={handleClick} src={arrowSvg} alt="seta-voltar" />
-                    <h1>Término do tubo</h1>
+                    <h2>Término do tubo</h2>
                 </div>
                 <div className="result-box" id="result-box">
-                    <h2>{props.mensagem}</h2>
+                    <h3>{props.mensagem}</h3>
                 </div>
             </div>
         </div>
