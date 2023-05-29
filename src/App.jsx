@@ -10,9 +10,9 @@ function App() {
 
   const [showResult, setShowResult] = useState(false)
   return (
-    <div>
+    <div className='container'>
       {!showResult && <Header ></Header>}
-      <div id={'container'} className='container'>
+      <div className='container-pages'>
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/terminopipe' element={<EndPipePage showResult={showResult} setShowResult={setShowResult} />} />
