@@ -73,7 +73,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
 
         console.log(newDate)
         if (endTime() > 0 && endTime() < 999999) {
-            let mensagem = `O tubo terminará no(a) ${diaDaSemana}, ${(newDays.toString()).padStart(2, '0')} de ${meses[newMonth]} de ${newYears}, às ${(newHours.toString()).padStart(2, '0')}:${(newMinutes.toString()).padStart(2, '0')}.`
+            let mensagem = `Término do tubo na boca da ferramenta previsto para ${diaDaSemana}, ${(newDays.toString()).padStart(2, '0')} de ${meses[newMonth]} de ${newYears}, às ${(newHours.toString()).padStart(2, '0')}:${(newMinutes.toString()).padStart(2, '0')}.`
 
             return mensagem
         } else {

@@ -6,6 +6,7 @@
     &-control {
         position: relative;
         width: 100%;
+        margin-bottom: 10px;
         input {
             &:hover {
                 border-color: #000;
@@ -16,6 +17,7 @@
     .number-line {
         display: flex;
     }
+
     .end-refer {
         display: flex;
     }
@@ -27,5 +29,10 @@
         left: 0;
         visibility: visible;
         font-weight: 600;
+    }
+}
+@media only screen and (max-width: 490px) {
+    .number-line {
+        flex-direction: column;
     }
 }
