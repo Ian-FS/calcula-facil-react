@@ -39,7 +39,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
         'Dezembro'
     ]
 
-    const endTime = () => (toBeProduced - produced - valueRadioLine / speedLine)
+    const endTime = () => ((toBeProduced - produced - valueRadioLine) / speedLine)
 
     console.log(endTime())
 
