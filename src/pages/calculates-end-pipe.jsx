@@ -153,6 +153,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
                                 setCheck={setCheck}
                                 check={check}
                                 setActiveStyle={setActiveStyle}
+                                type={'radio'}
                             />
                             <InputCheck
                                 labelCheck={'Linha 2'}
@@ -162,6 +163,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
                                 setCheck={setCheck}
                                 check={check}
                                 setActiveStyle={setActiveStyle}
+                                type={'radio'}
                             />
                             <InputCheck
                                 labelCheck={'Linha 3'}
@@ -171,6 +173,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
                                 setCheck={setCheck}
                                 check={check}
                                 setActiveStyle={setActiveStyle}
+                                type={'radio'}
                             />
                         </div>
                         {(!check && activeStyle) && <small className="small-message"> Escolha uma Linha</small>}
