@@ -8,6 +8,9 @@
         height: 30px;
         vertical-align: middle;
     }
+    input[type="checkbox"] {
+        max-width: 23px;
+    }
 }
 @media only screen and (max-width: 490px) {
     .check {

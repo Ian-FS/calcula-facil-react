@@ -5,23 +5,46 @@ import ResultDashboard from "../components/Formulario/ResultDashboard/ResultDash
 import Botao from "../components/Formulario/Botao/Botao"
 import './style.scss'
 
-export default function CompressionPage() {
+// eslint-disable-next-line react/prop-types
+export default function CompressionPage({ showResult, setShowResult }) {
 
     const [activeStyleTaxa, setActiveStyleTaxa] = useState(false)
-    const [showResultTaxa, setShowResultTaxa] = useState(false)
+    // const [showResultTaxa, setShowResultTaxa] = useState(false)
     const [carcassTotal, setCarcassTotal] = useState('')
     const [carcassPartial, setCarcassPartial] = useState('')
     const [extrusionPartial, setExtrusionPartial] = useState('')
     const [invalid, setInvalid] = useState('')
-    const [checkTaxa, setCheckTaxa] = useState(false)
+    const [checkSense, setCheckSense] = useState(false)
+    console.log(checkSense)
 
 
-    const calculaTaxa = () => { }
-    const handleClick = () => { }
+    const calculaTaxa = () => {
+        if (checkSense) {
+            let validCarcass = carcassPartial - invalid;
+            let taxCompress = 100 - 100 / (validCarcass / extrusionPartial);
+
+            const totalValidPipeAfterCompress = (carcassTotal - invalid) - (carcassTotal * (taxCompress / 100));
+            console.log(taxCompress, totalValidPipeAfterCompress)
+            return { taxCompress, totalValidPipeAfterCompress }
+
+        } else {
+            let validCarcass = carcassTotal - carcassPartial - invalid;
+            let taxCompress = 100 - 100 / (validCarcass / extrusionPartial);
+            const totalValidPipeAfterCompress = (carcassTotal - invalid) - (carcassTotal * (taxCompress / 100));
+            console.log(taxCompress, totalValidPipeAfterCompress)
+            return { taxCompress, totalValidPipeAfterCompress }
+        }
+    }
+    const handleClick = (event) => {
+        event.preventDefault()
+        calculaTaxa()
+        setShowResult(true)
+
+    }
 
     return (
         <>
-            {!showResultTaxa &&
+            {!showResult &&
                 <form className="form" onSubmit={handleClick}>
                     <div>
                         <InputBox
@@ -64,25 +87,25 @@ export default function CompressionPage() {
                             <InputCheck
                                 labelCheck={'Carcaça em sentido crescente'}
                                 nameCheck={'line'}
-                                setCheck={setCheckTaxa}
-                                check={checkTaxa}
+                                setCheckSense={setCheckSense}
+                                checkSense={checkSense}
                                 setActiveStyle={setActiveStyleTaxa}
-                                type={'radio'}
+                                type={'checkbox'}
                             />
 
                         </div>
-                        {(!checkTaxa && activeStyleTaxa) && <small className="small-message"> Escolha uma Linha</small>}
+                        {(!checkSense && activeStyleTaxa) && <small className="small-message"> Escolha uma Linha</small>}
                         <Botao />
                     </div>
                 </form>
             }
             {
-                (showResultTaxa) &&
+                (showResult) &&
                 <ResultDashboard
-                    mensagem={calculaTaxa}
-                    setShowValue={setShowResultTaxa}
+                    result={calculaTaxa}
+                    setShowValue={setShowResult}
                     setActiveStyle={setActiveStyleTaxa}
-                    setCheck={setCheckTaxa}
+                    setCheck={setCheckSense}
                 />
             }
         </>
