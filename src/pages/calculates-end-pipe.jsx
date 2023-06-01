@@ -66,11 +66,11 @@ export default function EndPipePage({ showResult, setShowResult }) {
 
 
         const diaDaSemana = diasDaSemana[newDate.getDay()]
-        const newMinutes = newDate.getMinutes().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
-        const newHours = newDate.getHours().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
-        const newDays = newDate.getDate().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
-        const newMonth = newDate.getMonth().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
-        const newYears = newDate.getFullYear().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
+        const newMinutes = newDate.getMinutes()
+        const newHours = newDate.getHours()
+        const newDays = newDate.getDate()
+        const newMonth = newDate.getMonth()
+        const newYears = newDate.getFullYear()
 
         console.log(newDate.getUTCDate())
         if (endTime() > 0 && endTime() < 999999) {
