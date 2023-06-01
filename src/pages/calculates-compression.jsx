@@ -3,6 +3,7 @@ import InputBox from "../components/Formulario/InputBox/InputBox";
 import InputCheck from "../components/Formulario/InputCheck/InputCheck";
 import ResultDashboard from "../components/Formulario/ResultDashboard/ResultDashboard"
 import Botao from "../components/Formulario/Botao/Botao"
+import './style.scss'
 
 export default function CompressionPage() {
 
@@ -66,7 +67,7 @@ export default function CompressionPage() {
                                 setCheck={setCheckTaxa}
                                 check={checkTaxa}
                                 setActiveStyle={setActiveStyleTaxa}
-                                type={'check'}
+                                type={'radio'}
                             />
 
                         </div>

@@ -51,6 +51,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
     console.log(convertedTimes.minutes)
 
     const addTime = () => {
+
         let currentDate = new Date()
         let newDate = new Date()
 
@@ -65,13 +66,13 @@ export default function EndPipePage({ showResult, setShowResult }) {
 
 
         const diaDaSemana = diasDaSemana[newDate.getDay()]
-        const newMinutes = newDate.getMinutes()
-        const newHours = newDate.getHours()
-        const newDays = newDate.getDate()
-        const newMonth = newDate.getMonth()
-        const newYears = newDate.getFullYear()
+        const newMinutes = newDate.getMinutes().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
+        const newHours = newDate.getHours().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
+        const newDays = newDate.getDate().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
+        const newMonth = newDate.getMonth().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
+        const newYears = newDate.getFullYear().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
 
-        console.log(newDate)
+        console.log(newDate.getUTCDate())
         if (endTime() > 0 && endTime() < 999999) {
             let mensagem = `Término do tubo na boca da ferramenta previsto para ${diaDaSemana}, ${(newDays.toString()).padStart(2, '0')} de ${meses[newMonth]} de ${newYears}, às ${(newHours.toString()).padStart(2, '0')}:${(newMinutes.toString()).padStart(2, '0')}.`
 
