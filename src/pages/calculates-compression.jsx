@@ -25,14 +25,19 @@ export default function CompressionPage({ showResult, setShowResult }) {
 
             const totalValidPipeAfterCompress = (carcassTotal - invalid) - (carcassTotal * (taxCompress / 100));
             console.log(taxCompress, totalValidPipeAfterCompress)
-            return { taxCompress, totalValidPipeAfterCompress }
+            let mensagem = `A taxa de compressão está atualmente em ${taxCompress.toFixed(2)}%.
+            Caso essa taxa permaneça até o final da produção, o valor total de tubo válido será de ${totalValidPipeAfterCompress.toFixed(2)} metros. `
+
+            return mensagem
 
         } else {
             let validCarcass = carcassTotal - carcassPartial - invalid;
             let taxCompress = 100 - 100 / (validCarcass / extrusionPartial);
             const totalValidPipeAfterCompress = (carcassTotal - invalid) - (carcassTotal * (taxCompress / 100));
             console.log(taxCompress, totalValidPipeAfterCompress)
-            return { taxCompress, totalValidPipeAfterCompress }
+            let mensagem = `A taxa de compressão está atualmente em ${taxCompress.toFixed(2)}%.
+            Caso essa taxa permaneça até o final da produção, o valor total de tubo válido será de ${totalValidPipeAfterCompress.toFixed(2)} metros. `
+            return mensagem
         }
     }
     const handleClick = (event) => {
@@ -86,7 +91,7 @@ export default function CompressionPage({ showResult, setShowResult }) {
                         <div className="number-line">
                             <InputCheck
                                 labelCheck={'Carcaça em sentido crescente'}
-                                nameCheck={'line'}
+                                nameCheck={'sense'}
                                 setCheckSense={setCheckSense}
                                 checkSense={checkSense}
                                 setActiveStyle={setActiveStyleTaxa}
@@ -102,7 +107,7 @@ export default function CompressionPage({ showResult, setShowResult }) {
             {
                 (showResult) &&
                 <ResultDashboard
-                    result={calculaTaxa}
+                    mensagem={calculaTaxa}
                     setShowValue={setShowResult}
                     setActiveStyle={setActiveStyleTaxa}
                     setCheck={setCheckSense}

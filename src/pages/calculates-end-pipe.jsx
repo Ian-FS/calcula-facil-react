@@ -9,7 +9,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
     const [toBeProduced, setToBeProduced] = useState('');
     const [produced, setProduced] = useState('');
     const [speedLine, setSpeedLine] = useState('');
-    const [check, setCheck] = useState(false);
+    const [check, setCheckLine] = useState(false);
     const [activeStyle, setActiveStyle] = useState(false)
     const [valueRadioLine, setValueRadioLine] = useState(0)
 
@@ -151,7 +151,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
                                 nameCheck={'line'}
                                 valueCheck={58}
                                 setValueRadio={setValueRadioLine}
-                                setCheck={setCheck}
+                                setCheckLine={setCheckLine}
                                 check={check}
                                 setActiveStyle={setActiveStyle}
                                 type={'radio'}
@@ -161,7 +161,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
                                 nameCheck={'line'}
                                 valueCheck={56}
                                 setValueRadio={setValueRadioLine}
-                                setCheck={setCheck}
+                                setCheckLine={setCheckLine}
                                 check={check}
                                 setActiveStyle={setActiveStyle}
                                 type={'radio'}
@@ -171,7 +171,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
                                 nameCheck={'line'}
                                 valueCheck={61}
                                 setValueRadio={setValueRadioLine}
-                                setCheck={setCheck}
+                                setCheckLine={setCheckLine}
                                 check={check}
                                 setActiveStyle={setActiveStyle}
                                 type={'radio'}
@@ -185,10 +185,10 @@ export default function EndPipePage({ showResult, setShowResult }) {
             {
                 (showResult) &&
                 <ResultDashboard
-                    mensagem={addTime()}
+                    mensagem={addTime}
                     setShowValue={setShowResult}
                     setActiveStyle={setActiveStyle}
-                    setCheck={setCheck}
+                    setCheckLine={setCheckLine}
                 />
             }
         </>

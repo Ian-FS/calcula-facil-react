@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import './InputCheck.scss'
 
-export default function InputCheck({ labelCheck, nameCheck, valueRadio, setValueRadio, setCheckSense, checkSense, setActiveStyle, type }) {
+export default function InputCheck({ labelCheck, nameCheck, valueRadio, setValueRadio, setCheckLine, setCheckSense, setActiveStyle, type }) {
 
 
     return (
@@ -12,7 +12,8 @@ export default function InputCheck({ labelCheck, nameCheck, valueRadio, setValue
                 value={valueRadio}
                 onClick={(event) => {
                     valueRadio > 0 && setValueRadio(parseFloat(event.target.value))
-                    setCheckSense((prev) => !prev)
+                    nameCheck === 'line' && setCheckLine(true)
+                    nameCheck === 'sense' && setCheckSense((prev) => !prev)
                     setActiveStyle(false)
                 }}
             />
