@@ -39,29 +39,27 @@ export default function EndPipePage({ showResult, setShowResult }) {
 
     const endTime = () => ((toBeProduced - produced - valueRadioLine) / speedLine)
 
-    console.log(endTime())
+    // console.log(`minutos calculados: ${endTime()}`)
 
     const convertedTimes = {
         days: Math.trunc((endTime() / 60) / 24), // dias
-        hours: Math.trunc(endTime() / 60), // horas
+        hours: Math.trunc(((endTime() / 1440) - Math.trunc(endTime() / 1440)) * 60) - (24 * Math.trunc(endTime() / 1440)), // horas
         minutes: parseFloat((endTime() % 60).toFixed(0)) //minutos
     }
-    console.log(convertedTimes.days)
-    console.log(convertedTimes.hours)
-    console.log(convertedTimes.minutes)
-
+    console.log(`${endTime()}: ${convertedTimes.days} dias, ${convertedTimes.hours} horas e ${convertedTimes.minutes} minutos.`)
+    console.log(3000 % 7)
     const addTime = () => {
 
         let currentDate = new Date()
+        console.log(`data atual:${currentDate}`)
         let newDate = new Date()
 
-        console.log(`date atual: ${currentDate}`)
         newDate.setDate(currentDate.getDate() + convertedTimes.days)
-        console.log(`apos adicionar os dias: ${newDate}`)
+        // console.log(`apos adicionar os dias: ${newDate.getDate()}`)
         newDate.setHours(currentDate.getHours() + convertedTimes.hours)
-        console.log(`apos adicionar horas: ${newDate}`)
+        // console.log(`apos adicionar as horas: ${newDate.getHours()}`)
         newDate.setMinutes(currentDate.getMinutes() + convertedTimes.minutes)
-        console.log(`apos adicionar minutos: ${newDate}`)
+        // console.log(`apos adicionar os minutos: ${newDate.getMinutes()}`)
 
 
 
@@ -85,7 +83,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
 
     const checkInput = () => {
         if (toBeProduced === "") {
-            console.log(toBeProduced)
+            // console.log(toBeProduced)
             setActiveStyle(true)
             return false
         }
