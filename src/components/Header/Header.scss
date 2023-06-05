@@ -28,15 +28,15 @@ header {
                 font-weight: 700;
                 text-decoration: none;
                 color: inherit;
+                padding: 20px;
                 &:hover {
                     color: #d80032;
                 }
-                // &:focus {
-                //     color: #d80032;
-                //     li {
-                //         opacity: 100%;
-                //     }
-                // }
+            }
+            @media only screen and (max-width: 490px) {
+                a {
+                    padding: 0px;
+                }
             }
         }
     }
