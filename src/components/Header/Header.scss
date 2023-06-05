@@ -4,20 +4,21 @@ header {
     }
     width: 100%;
     background-color: #edf2f4;
-    color: #2b2d42;
+    color: #8d99ae;
     font-size: 18px;
     border-radius: 10px;
     ul {
         display: flex;
+
         .item-endpipe {
             background-color: #edf2f4;
-            border-radius: 10px;
+            border-radius: 10px 10px 0 0;
             opacity: 100%;
-            color: #d80032;
+            color: #2b2d42;
         }
         .item-compression {
             background-color: #edf2f4;
-            border-radius: 10px;
+            border-radius: 10px 10px 0 0;
             opacity: 90%;
         }
         li {

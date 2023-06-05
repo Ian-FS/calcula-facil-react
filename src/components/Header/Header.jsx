@@ -10,8 +10,8 @@ export default function Header() {
                 <ul>
                     <li className="item-endpipe"
                         onClick={(event) => {
-                            event.target.parentElement.parentElement.children[0].style.color = '#d80032'
-                            event.target.parentElement.parentElement.children[1].style.color = '#2b2d42'
+                            event.target.parentElement.parentElement.children[0].style.color = '#2B2D42'
+                            event.target.parentElement.parentElement.children[1].style.color = '#8D99AE'
 
                             event.target.parentElement.parentElement.children[0].style.opacity = '100%'
                             event.target.parentElement.parentElement.children[1].style.opacity = '90%'
@@ -19,8 +19,8 @@ export default function Header() {
                     ><Link to="/">Término do tubo</Link></li>
                     <li
                         onClick={(event => {
-                            event.target.parentElement.parentElement.children[1].style.color = '#d80032'
-                            event.target.parentElement.parentElement.children[0].style.color = '#2b2d42'
+                            event.target.parentElement.parentElement.children[1].style.color = '#2B2D42'
+                            event.target.parentElement.parentElement.children[0].style.color = '#8D99AE'
 
                             event.target.parentElement.parentElement.children[1].style.opacity = '100%'
                             event.target.parentElement.parentElement.children[0].style.opacity = '90%'
