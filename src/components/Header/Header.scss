@@ -1,26 +1,41 @@
 header {
+    nav {
+        background-color: #ef233c;
+    }
     width: 100%;
-    background-color: #fafafa;
-    color: black;
-    padding: 20px;
+    background-color: #edf2f4;
+    color: #2b2d42;
     font-size: 18px;
     border-radius: 10px;
     ul {
         display: flex;
-        justify-content: space-around;
-        gap: 20px;
+        .item-endpipe {
+            background-color: #edf2f4;
+            border-radius: 10px;
+            opacity: 100%;
+            color: #d80032;
+        }
+        .item-compression {
+            background-color: #edf2f4;
+            border-radius: 10px;
+            opacity: 90%;
+        }
         li {
+            padding: 20px;
             list-style-type: none;
             a {
                 font-weight: 700;
                 text-decoration: none;
                 color: inherit;
                 &:hover {
-                    color: darkred;
+                    color: #d80032;
                 }
-                &:focus {
-                    color: darkred;
-                }
+                // &:focus {
+                //     color: #d80032;
+                //     li {
+                //         opacity: 100%;
+                //     }
+                // }
             }
         }
     }

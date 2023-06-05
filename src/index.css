@@ -8,9 +8,6 @@
 body {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(180deg, #80807f -39%, #ff0000 100%);
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    background: linear-gradient(180deg, #EF233C 2%, #D80032 100%);
     padding: 25px;
 }

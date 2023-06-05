@@ -1,15 +1,15 @@
 button {
     width: 100%;
-    background-color: crimson;
+    background-color: #d80032;
     border-radius: 10px;
-    border: 2px solid crimson;
+    border: 2px solid #d80032;
     font-size: 20px;
     padding: 10px;
     color: #eee;
     font-weight: bold;
     margin-top: 25px;
     &:hover {
-        background-color: #e74c3c;
+        background-color: #ef233c;
         transition: 0.2s;
     }
 }
