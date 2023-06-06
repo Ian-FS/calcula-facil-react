@@ -20,7 +20,7 @@ export default function ResultDashboard(props) {
                     <Link to={props.to} >
                         <img onClick={handleClick} src={arrowSvg} alt="seta-voltar" />
                     </Link>
-                    {/* <h2>{props.titulo}</h2> */}
+                    <h2>Voltar</h2>
                 </div>
                 <div className="result-box" id="result-box">
                     <h3>{props.mensagem()}</h3>

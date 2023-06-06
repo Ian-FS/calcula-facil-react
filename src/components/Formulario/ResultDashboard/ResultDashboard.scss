@@ -4,10 +4,11 @@
     color: #2b2d42;
     .result-header {
         display: flex;
+        align-items: center;
+        gap: 10px;
         padding: 10px 25px;
         background-color: #edf2f4;
         font-size: 15px;
-        justify-content: space-between;
         align-items: center;
         border-radius: 10px 10px 0 0;
         img {
