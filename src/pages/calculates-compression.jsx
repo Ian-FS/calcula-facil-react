@@ -9,13 +9,11 @@ import './style.scss'
 export default function CompressionPage({ showResult, setShowResult }) {
 
     const [activeStyleTaxa, setActiveStyleTaxa] = useState(false)
-    // const [showResultTaxa, setShowResultTaxa] = useState(false)
     const [carcassTotal, setCarcassTotal] = useState('')
     const [carcassPartial, setCarcassPartial] = useState('')
     const [extrusionPartial, setExtrusionPartial] = useState('')
     const [invalid, setInvalid] = useState('')
     const [checkSense, setCheckSense] = useState(false)
-    console.log(checkSense)
 
 
     const calculaTaxa = () => {
@@ -44,6 +42,7 @@ export default function CompressionPage({ showResult, setShowResult }) {
         event.preventDefault()
         calculaTaxa()
         setShowResult(true)
+        console.log(event.target.parentNode.parentNode.children[0].children[0].children[0].children[0])
 
     }
 
@@ -107,7 +106,9 @@ export default function CompressionPage({ showResult, setShowResult }) {
             {
                 (showResult) &&
                 <ResultDashboard
+                    titulo={'Taxa de compressão'}
                     mensagem={calculaTaxa}
+                    to={"/compressao"}
                     setShowValue={setShowResult}
                     setActiveStyle={setActiveStyleTaxa}
                     setCheck={setCheckSense}

@@ -85,6 +85,7 @@ export default function EndPipePage({ showResult, setShowResult }) {
     }
 
     const handleClick = (event) => {
+        console.log(event)
         event.preventDefault();
         setShowResult(checkInput)
     }
@@ -161,7 +162,9 @@ export default function EndPipePage({ showResult, setShowResult }) {
             {
                 (showResult) &&
                 <ResultDashboard
+                    titulo={'Término do tubo'}
                     mensagem={addTime}
+                    to={"/"}
                     setShowValue={setShowResult}
                     setActiveStyle={setActiveStyle}
                     setCheckLine={setCheckLine}

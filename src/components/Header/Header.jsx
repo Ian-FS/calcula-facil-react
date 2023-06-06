@@ -2,7 +2,9 @@
 import { Link } from "react-router-dom";
 import './Header.scss'
 
-export default function Header() {
+export default function Header(props) {
+
+
 
     return (
         <header>
@@ -15,6 +17,7 @@ export default function Header() {
 
                             event.target.parentElement.parentElement.children[0].style.opacity = '100%'
                             event.target.parentElement.parentElement.children[1].style.opacity = '90%'
+                            props.setShowResult(false)
                         }}
                     ><Link to="/">Término do tubo</Link></li>
                     <li
@@ -24,6 +27,7 @@ export default function Header() {
 
                             event.target.parentElement.parentElement.children[1].style.opacity = '100%'
                             event.target.parentElement.parentElement.children[0].style.opacity = '90%'
+                            props.setShowResult(false)
                         })}
                         className="item-compression"><Link to="/compressao">Taxa de compressão</Link></li>
                 </ul>

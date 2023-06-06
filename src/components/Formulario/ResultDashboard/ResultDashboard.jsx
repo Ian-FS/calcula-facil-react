@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import './ResultDashboard.scss'
 import arrowSvg from '../../../assets/arrow.svg';
+import { Link } from "react-router-dom";
 
 
 export default function ResultDashboard(props) {
@@ -9,15 +10,17 @@ export default function ResultDashboard(props) {
 
     const handleClick = () => {
         props.setShowValue(false)
-        props.setActiveStyle(false)
-        props.setCheck(false)
+        // props.setActiveStyle(false)
+        // props.setCheck(false)
     }
     return (
         <div className="container">
             <div className="result-container" id="result-container">
                 <div className="result-header">
-                    <img onClick={handleClick} src={arrowSvg} alt="seta-voltar" />
-                    <h2>Término do tubo</h2>
+                    <Link to={props.to} >
+                        <img onClick={handleClick} src={arrowSvg} alt="seta-voltar" />
+                    </Link>
+                    <h2>{props.titulo}</h2>
                 </div>
                 <div className="result-box" id="result-box">
                     <h3>{props.mensagem()}</h3>

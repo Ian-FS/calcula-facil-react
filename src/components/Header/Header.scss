@@ -2,14 +2,12 @@ header {
     nav {
         background-color: #ef233c;
     }
-    width: 100%;
     background-color: #edf2f4;
     color: #8d99ae;
-    font-size: 18px;
+    font-size: 22px;
     border-radius: 10px;
     ul {
         display: flex;
-
         .item-endpipe {
             background-color: #edf2f4;
             border-radius: 10px 10px 0 0;
@@ -22,20 +20,22 @@ header {
             opacity: 90%;
         }
         li {
-            padding: 20px;
             list-style-type: none;
+            width: 100%;
             a {
+                display: flex;
+                width: 100%;
+                padding: 20px;
                 font-weight: 700;
                 text-decoration: none;
                 color: inherit;
-                padding: 20px;
                 &:hover {
                     color: #d80032;
                 }
             }
             @media only screen and (max-width: 490px) {
                 a {
-                    padding: 0px;
+                    font-size: 20px;
                 }
             }
         }
