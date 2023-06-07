@@ -1,9 +1,9 @@
 .container {
   margin: 0 auto;
-  max-width: 700px;
+  max-width: 600px;
   &-pages {
     background-color: #edf2f4;
-    border-radius: 0 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
     // box-shadow: 0 2px 5px rgb(0, 0, 0, 0.3);
     width: 100%;
     position: relative;
