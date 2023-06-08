@@ -12,16 +12,18 @@ export default function CompressionPage({ showResult, setShowResult }) {
     const [carcassTotal, setCarcassTotal] = useState('')
     const [carcassPartial, setCarcassPartial] = useState('')
     const [extrusionPartial, setExtrusionPartial] = useState('')
-    const [invalid, setInvalid] = useState('')
+    const [invalidExtrusion, setInvalidExtrusion] = useState('')
+    const [invalidCarcass, setInvalidCarcass] = useState('')
     const [checkSense, setCheckSense] = useState(false)
 
 
     const calculaTaxa = () => {
+        const resultInvalid = invalidExtrusion - invalidCarcass
         if (checkSense) {
-            let validCarcass = carcassPartial - invalid;
+            let validCarcass = carcassPartial - resultInvalid;
             let taxCompress = 100 - 100 / (validCarcass / extrusionPartial);
 
-            const totalValidPipeAfterCompress = (carcassTotal - invalid) - (carcassTotal * (taxCompress / 100));
+            const totalValidPipeAfterCompress = (carcassTotal - resultInvalid) - (carcassTotal * (taxCompress / 100));
             console.log(taxCompress, totalValidPipeAfterCompress)
             let mensagem = `A taxa de compressão está atualmente em ${taxCompress.toFixed(2)}%.
             Caso essa taxa permaneça até o final da produção, o valor total de tubo válido será de ${totalValidPipeAfterCompress.toFixed(2)} metros. `
@@ -29,9 +31,9 @@ export default function CompressionPage({ showResult, setShowResult }) {
             return mensagem
 
         } else {
-            let validCarcass = carcassTotal - carcassPartial - invalid;
+            let validCarcass = carcassTotal - carcassPartial - resultInvalid;
             let taxCompress = 100 - 100 / (validCarcass / extrusionPartial);
-            const totalValidPipeAfterCompress = (carcassTotal - invalid) - (carcassTotal * (taxCompress / 100));
+            const totalValidPipeAfterCompress = (carcassTotal - resultInvalid) - (carcassTotal * (taxCompress / 100));
             console.log(taxCompress, totalValidPipeAfterCompress)
             let mensagem = `A taxa de compressão está atualmente em ${taxCompress.toFixed(2)}%.
             Caso essa taxa permaneça até o final da produção, o valor total de tubo válido será de ${totalValidPipeAfterCompress.toFixed(2)} metros. `
@@ -79,11 +81,20 @@ export default function CompressionPage({ showResult, setShowResult }) {
                             activeStyle={activeStyleTaxa}
                         />
                         <InputBox
-                            labelBox={'Invalido inicial'}
+                            labelBox={'DNE extrusão inicial'}
                             placeholder={'Informe a metragem'}
                             stepValue="0.1"
-                            setValue={setInvalid}
-                            value={invalid}
+                            setValue={setInvalidExtrusion}
+                            value={invalidExtrusion}
+                            setActiveStyle={setActiveStyleTaxa}
+                            activeStyle={activeStyleTaxa}
+                        />
+                        <InputBox
+                            labelBox={'DNE carcaça final'}
+                            placeholder={'Informe a metragem'}
+                            stepValue="0.1"
+                            setValue={setInvalidCarcass}
+                            value={invalidCarcass}
                             setActiveStyle={setActiveStyleTaxa}
                             activeStyle={activeStyleTaxa}
                         />
