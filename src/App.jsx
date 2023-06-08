@@ -4,6 +4,7 @@ import CompressionPage from './pages/calculates-compression'
 import EndPipePage from './pages/calculates-end-pipe'
 import Header from './components/Header/Header';
 import { useState } from 'react';
+import CompressionPageTeste from './pages/calculates-compression-teste';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<EndPipePage showResult={showResult} setShowResult={setShowResult} />} />
           <Route path='/compressao' element={<CompressionPage showResult={showResult} setShowResult={setShowResult} />} />
+          <Route path='/teste' element={<CompressionPageTeste />} />
           <Route path='*' element={<h1>Página não encontrada</h1>} />
         </Routes>
       </div>
