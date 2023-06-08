@@ -8,15 +8,30 @@ export default function CompressionPageTeste() {
 
     const onSubmit = data => {
 
-        const { totalCarcass, partialCarcass, partialExtrusion, invalid } = data
+        const { totalCarcass, partialCarcass, partialExtrusion, invalidExtrusion, invalidCarcass, carcassSense } = data
 
-        let validCarcass = +partialCarcass - +invalid;
-        let compressionRatio = 100 - 100 / (+validCarcass / +partialExtrusion);
+        const resultInvalid = +invalidExtrusion - +invalidCarcass
 
-        const totalValidPipeAfterCompress = (+totalCarcass - +invalid) - (+totalCarcass * (compressionRatio / 100));
+        if (carcassSense) {
+            const validCarcass = +partialCarcass - resultInvalid;
+            const compressionRatio = 100 - 100 / (+validCarcass / +partialExtrusion);
+            const totalValidPipeAfterCompress = (+totalCarcass - resultInvalid) - (+totalCarcass * (compressionRatio / 100));
+            let mensagem = `A taxa de compressão está atualmente em ${compressionRatio.toFixed(2)}%.
+            Caso essa taxa permaneça até o final da produção, o valor total de tubo válido será de ${totalValidPipeAfterCompress.toFixed(2)} metros.`
+            console.log(mensagem)
+            return mensagem
 
-        let mensagem = `A taxa de compressão está atualmente em ${compressionRatio.toFixed(2)}%.
+        } else {
+            const validCarcass = +totalCarcass - +partialCarcass - resultInvalid;
+            const compressionRatio = 100 - 100 / (validCarcass / +partialExtrusion);
+            const totalValidPipeAfterCompress = (+totalCarcass - resultInvalid) - (+totalCarcass * (compressionRatio / 100));
+            let mensagem = `A taxa de compressão está atualmente em ${compressionRatio.toFixed(2)
+                }%.
             Caso essa taxa permaneça até o final da produção, o valor total de tubo válido será de ${totalValidPipeAfterCompress.toFixed(2)} metros. `
+            console.log(mensagem)
+            return mensagem
+
+        }
     }
 
     return (
@@ -43,12 +58,19 @@ export default function CompressionPageTeste() {
                     step='0.1'
                     {...register('partialExtrusion')}
                 />
-                <label htmlFor="invalid">Inválido inicial</label>
+                <label htmlFor="invalidExtrusion">DNE Extrusão</label>
                 <input
                     type="number"
                     min={0}
                     step='0.1'
-                    {...register('invalid')}
+                    {...register('invalidExtrusion')}
+                />
+                <label htmlFor="invalid">DNE final da carcaça</label>
+                <input
+                    type="number"
+                    min={0}
+                    step='0.1'
+                    {...register('invalidCarcass')}
                 />
                 <input
                     type="checkbox"
