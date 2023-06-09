@@ -1,0 +1,22 @@
+.form {
+    padding: 25px;
+    .carcasss-sense {
+        display: flex;
+        gap: 10px;
+        .input-check {
+            width: 25px;
+        }
+    }
+    .point-refer {
+        margin-top: 10px;
+        display: flex;
+        gap: 60px;
+        div {
+            display: flex;
+            gap: 10px;
+        }
+        input {
+            width: 25px;
+        }
+    }
+}
