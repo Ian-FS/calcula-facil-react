@@ -4,7 +4,7 @@ import './compression-teste.scss'
 
 export default function CompressionPageTeste() {
 
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
 
     const onSubmit = data => {
 
@@ -53,43 +53,55 @@ export default function CompressionPageTeste() {
                     type="number"
                     min={0}
                     step='0.1'
-                    {...register('totalCarcass')}
+                    {...register('totalCarcass', { required: true })}
                 />
+                <p>{errors.totalCarcass && "Informação obrigatória."}</p>
+
                 <label htmlFor="partialCarcass">Carcaça produzida</label>
                 <input
                     type="number"
                     min={0}
                     step='0.1'
-                    {...register('partialCarcass')}
+                    {...register('partialCarcass', { required: true })}
                 />
+                <p>{errors.partialCarcass && "Informação obrigatória."}</p>
+
                 <label htmlFor="partialExtrusion">Extrusão produzida</label>
                 <input
                     type="number"
                     min={0}
                     step='0.1'
-                    {...register('partialExtrusion')}
+                    {...register('partialExtrusion', { required: true })}
                 />
+                <p>{errors.partialExtrusion && "Informação obrigatória."}</p>
+
                 <label htmlFor="invalidExtrusion">DNE Extrusão</label>
                 <input
                     type="number"
                     min={0}
                     step='0.1'
-                    {...register('invalidExtrusion')}
+                    {...register('invalidExtrusion', { required: true })}
                 />
+                <p>{errors.invalidExtrusion && "Informação obrigatória."}</p>
+
                 <label htmlFor="invalidCarcass">DNE final da carcaça</label>
                 <input
                     type="number"
                     min={0}
                     step='0.1'
-                    {...register('invalidCarcass')}
+                    {...register('invalidCarcass', { required: true })}
                 />
+                <p>{errors.invalidCarcass && "Informação obrigatória."}</p>
+
                 <label htmlFor="refValue">Metragem de referência</label>
                 <input
                     type="number"
                     min={0}
                     step='0.1'
-                    {...register('refValue')}
+                    {...register('refValue', { required: true })}
                 />
+                <p>{errors.refValue && "Informação obrigatória."}</p>
+
                 <div className="carcasss-sense">
                     <input
                         className="input-check"

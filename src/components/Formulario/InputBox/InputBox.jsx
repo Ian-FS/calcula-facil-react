@@ -19,6 +19,7 @@ export default function InputBox({ labelBox, placeholder, stepValue, value, setV
         <div className="form-control">
             <label htmlFor="input">{labelBox}</label>
             <input
+                className='inputComponent'
                 style={styleErrorInput}
                 value={value}
                 type='number'
