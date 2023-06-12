@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<EndPipePage showResult={showResult} setShowResult={setShowResult} />} />
           <Route path='/compressao' element={<CompressionPage showResult={showResult} setShowResult={setShowResult} />} />
-          <Route path='/teste' element={<CompressionPageTeste />} />
+          <Route path='/teste' element={<CompressionPageTeste showResult={showResult} setShowResult={setShowResult} />} />
           <Route path='*' element={<h1>Página não encontrada</h1>} />
         </Routes>
       </div>
