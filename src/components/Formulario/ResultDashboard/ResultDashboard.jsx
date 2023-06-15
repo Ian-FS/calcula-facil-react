@@ -23,7 +23,7 @@ export default function ResultDashboard(props) {
                     <h2>Voltar</h2>
                 </div>
                 <div className="result-box" id="result-box">
-                    <h3>{props.mensagem}</h3>
+                    <h3>{props.mensagem()}</h3>
                 </div>
             </div>
         </div>
