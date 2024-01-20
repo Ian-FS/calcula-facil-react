@@ -40,7 +40,7 @@ export default function CompressionPageTeste({ showResult, setShowResult }) {
             return mensagem
         }
     }
-    console.log(register)
+    // console.log()
 
     return (
         <>
