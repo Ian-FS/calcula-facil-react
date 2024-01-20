@@ -8,15 +8,15 @@ export default function CalculatesConsumerMaterialPipe({
   showResult,
   setShowResult,
 }) {
-  const [espessuraNominal, setEspessuraNominal] = useState();
-  const [espessuraMedia, setEspessuraMedia] = useState();
-  const [consumoNominalPo, setConsumoNominalPo] = useState();
-  const [consumoNominalGranulado, setConsumoNominalGranulado] = useState();
-  const [consumoNominalPeroxido, setConsumoNominalPeroxido] = useState();
-  const [comprimentoTubo, setComprimentoTupo] = useState();
+  const [espessuraNominal, setEspessuraNominal] = useState('');
+  const [espessuraMedia, setEspessuraMedia] = useState('');
+  const [consumoNominalPo, setConsumoNominalPo] = useState('');
+  const [consumoNominalGranulado, setConsumoNominalGranulado] = useState('');
+  const [consumoNominalPeroxido, setConsumoNominalPeroxido] = useState('');
+  const [comprimentoTubo, setComprimentoTupo] = useState('');
   const [checkSense, setCheckSense] = useState(false);
   const [activeStyleTaxa, setActiveStyleTaxa] = useState(false);
-  const [purgaCaixa, setPurgaCaixa] = useState();
+  const [purgaCaixa, setPurgaCaixa] = useState('');
 
   function calculaPurga() {
     const consumoMedioPo =

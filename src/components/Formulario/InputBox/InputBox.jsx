@@ -38,6 +38,7 @@ export default function InputBox({
         min="0"
         placeholder={placeholder}
         onChange={handleChange}
+        lang="pt-BR"
       />
       <i className="fas fa-exclamation-circle" style={styleErrorExclamation} />
       <small style={styleErrorMessage}>Informação obrigatória</small>
