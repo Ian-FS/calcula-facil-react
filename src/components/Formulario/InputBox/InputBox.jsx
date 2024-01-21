@@ -12,7 +12,7 @@ export default function InputBox({
 }) {
   const handleChange = (event) => {
     setActiveStyle(false);
-    setValue(parseFloat(event.target.value));
+    setValue(event.target.value);
   };
 
   const styleErrorInput = {

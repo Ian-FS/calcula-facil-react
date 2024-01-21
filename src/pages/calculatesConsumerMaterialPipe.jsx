@@ -18,9 +18,21 @@ export default function CalculatesConsumerMaterialPipe({
   const [activeStyleTaxa, setActiveStyleTaxa] = useState(false);
   const [purgaCaixa, setPurgaCaixa] = useState('');
 
+  console.log(typeof espessuraNominal);
+
+  // function converteInputEmFloat() {
+  //   setEspessuraNominal((prev) => parseFloat(prev));
+  //   setEspessuraMedia((prev) => parseFloat(prev));
+  //   setConsumoNominalPo((prev) => parseFloat(prev));
+  //   setConsumoNominalGranulado((prev) => parseFloat(prev));
+  //   setConsumoNominalPeroxido((prev) => parseFloat(prev));
+  //   setComprimentoTupo((prev) => parseFloat(prev));
+  //   setPurgaCaixa((prev) => parseFloat(prev));
+  // }
   function calculaPurga() {
     const consumoMedioPo =
       (consumoNominalPo * espessuraMedia) / espessuraNominal;
+    console.log(consumoMedioPo);
     const consumoMedioGranulado =
       (consumoNominalGranulado * espessuraMedia) / espessuraNominal;
     const consumoMedioPeroxido =
@@ -41,7 +53,7 @@ export default function CalculatesConsumerMaterialPipe({
     const mensagem = `R1: ${recipiente1.toFixed(1)}
                       R2: ${recipiente2.toFixed(1)}
                       R3: ${recipiente3.toFixed(1)}
-                      Peróxido: ${peroxido}                   `;
+                      Peróxido: ${peroxido.toFixed(1)}                   `;
     console.log(mensagem);
 
     return mensagem;
@@ -49,6 +61,7 @@ export default function CalculatesConsumerMaterialPipe({
 
   const handleClick = (event) => {
     event.preventDefault();
+    // converteInputEmFloat();
     calculaPurga();
     setShowResult(true);
     console.log(

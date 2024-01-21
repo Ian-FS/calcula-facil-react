@@ -18,16 +18,15 @@ export default function CompressionPage({ showResult, setShowResult }) {
   const [checkSense, setCheckSense] = useState(false);
   const [valueRadio, setValueRadio] = useState(0);
 
-  console.log(extrusionPartial + valueRadio);
-
   const calculaTaxa = () => {
     const resultInvalid = invalidExtrusion - invalidCarcass;
-    console.log(extrusionPartial);
-    console.log(extrusionPartial + valueRadio);
     if (checkSense) {
       let validCarcass = carcassPartial - resultInvalid;
       let taxCompress =
-        100 - 100 / (validCarcass / (parseInt(extrusionPartial) + valueRadio));
+        100 -
+        100 /
+          (validCarcass /
+            (parseFloat(extrusionPartial) + parseFloat(valueRadio)));
 
       const totalValidPipeAfterCompress =
         carcassTotal - resultInvalid - carcassTotal * (taxCompress / 100);
@@ -43,7 +42,10 @@ export default function CompressionPage({ showResult, setShowResult }) {
     } else {
       let validCarcass = carcassTotal - carcassPartial - resultInvalid;
       let taxCompress =
-        100 - 100 / (validCarcass / (extrusionPartial + valueRadio));
+        100 -
+        100 /
+          (validCarcass /
+            (parseFloat(extrusionPartial) + parseFloat(valueRadio)));
       const totalValidPipeAfterCompress =
         carcassTotal - resultInvalid - carcassTotal * (taxCompress / 100);
       console.log(taxCompress, totalValidPipeAfterCompress);
